@@ -188,6 +188,31 @@ function makeLinearGraph(x, y, axis, numberOfDivisions, distanceBetweenDivisions
 }
 
 
+// Start Making and Designing Each Portal (oof..):
+function ENG(size, position) {
+  if (size == 1) {
+    let p = position * 5;
+    // Start Drawing Portal Contents
+    /* ENG Smallest (S)
+    Consists of basic info on THRUST, FFLOW, and N2 RPM.
+    */
+    addText("ENG", green, (((canvas.width - 1) / 8) * (position + 0.5)) - 15, ((canvas.height / 16) * 16) - 5, "normal 18px monospace");
+    addText("THRUST:", green, (((canvas.width - 1) / 40) * (p + 1)) - 15, ((canvas.height / 16) * (p + 3)) - 5, "normal 16px monospace");
+    addRect("transparent", green, (((canvas.width - 1) / 40) * (p + 3)) - 0, (((canvas.height - 1) / 16) * 12) + 20, (((canvas.width - 1) / 40) * 1.5) - 0, ((canvas.height/16)*0.5)-0);
+    let thrust = 93;
+    ctx.fillStyle = green;
+    ctx.fillRect((((canvas.width - 1) / 40) * (p + 3)) - 0 - 0.5, (((canvas.height - 1) / 16) * 12) + 20 - 0.5, ((((canvas.width - 1) / 40) * 1.5) - 0) / 100 * thrust, ((canvas.height / 16) * 0.5) - 0);
+    addText("FFLOW:", green, (((canvas.width - 1) / 40) * (p + 1)) - 15, ((canvas.height / 16) * 13) + 25, "normal 16px monospace");
+    addRect("transparent", green, (((canvas.width - 1) / 40) * (p + 3)) - 0, (((canvas.height - 1) / 16) * 12) + 50, (((canvas.width - 1) / 40) * 1.5) - 0, ((canvas.height / 16) * 0.5) - 0);
+    let fflow = 2;
+    ctx.fillStyle = green;
+    ctx.fillRect((((canvas.width - 1) / 40) * (p + 3)) - 0 - 0.5, (((canvas.height - 1) / 16) * 12) + 50 - 0.5, ((((canvas.width - 1) / 40) * 1.5) - 0) / 100 * fflow, ((canvas.height / 16) * 0.5) - 0);
+    addText("N2 RPM:", green, (((canvas.width - 1) / 40) * (p + 1)) - 15, ((canvas.height / 16) * 13) + 55, "normal 16px monospace");
+    addRect("transparent", green, (((canvas.width - 1) / 40) * (p + 3)) - 0, (((canvas.height - 1) / 16) * 12) + 80, (((canvas.width - 1) / 40) * 1.5) - 0, ((canvas.height / 16) * 0.5) - 0);
+    n2rpm = 96.4;
+    ctx.fillStyle = green;
+    ctx.fillRect((((canvas.width - 1) / 40) * (p + 3)) - 0 - 0.5, (((canvas.height - 1) / 16) * 12) + 80 - 0.5, ((((canvas.width - 1) / 40) * 1.5) - 0) / 100 * n2rpm, ((canvas.height / 16) * 0.5) - 0);
+  }
 
 
 function checkConfig() {
