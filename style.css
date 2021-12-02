@@ -1,0 +1,12 @@
+.PCDCanvas {
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 320px;
+  width: 800;
+  border: none;
+}
+body {
+  background-color: #444444;
+}
