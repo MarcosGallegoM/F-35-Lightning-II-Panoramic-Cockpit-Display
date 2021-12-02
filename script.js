@@ -171,7 +171,7 @@ function makeLinearGraph(x, y, axis, numberOfDivisions, distanceBetweenDivisions
       let tl = (number).toString().length;
       addText(number, numberColor, x - (tl * 11) + 5, y + (a * distanceBetweenDivisions) + 4, "normal 12 px monospace");
     }
-    for let a = 0; a < (numberOfDivisions - 1); a++) {
+    for (let a = 0; a < (numberOfDivisions - 1); a++) {
       addLine(lineColor, x, y + (a * distanceBetweenDivisions), x, y + ((a + 1) * distanceBetweenDivisions));
     }
     let vx = x - 30;
@@ -311,7 +311,7 @@ function addMobilityButton(direction, position, leftRight) {
 		makePolygon([[x - 5,  y - 5], [x - 25, y - 25], [x - 45, y - 5], [x - 5,  y - 5]], "transparent", blue, function () {toggleSize(position, direction);});
 	}
 	if (direction == "Down" && leftRight == "Left") {
-		makePolygon([[x + 5,  y- 2 5], [x + 25, y - 5], [x + 45, y - 25], [x + 5,  y - 25]], "transparent", blue, function () {toggleSize(position, direction);});
+		makePolygon([[x + 5,  y - 25], [x + 25, y - 5], [x + 45, y - 25], [x + 5,  y - 25]], "transparent", blue, function () {toggleSize(position, direction);});
 	}
 	if (direction == "Down" && leftRight == "Right") {
 		makePolygon([[x - 5,  y - 25], [x - 25, y - 5], [x - 45, y - 25], [x - 5,  y - 25]], "transparent", blue, function () {toggleSize(position, direction);});
