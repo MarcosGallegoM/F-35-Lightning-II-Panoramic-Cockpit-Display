@@ -293,12 +293,168 @@ function ENG(size, position) {
 }
 
 
+function addMobilityButton(direction, position, leftRight) {
+  let n = position * 10;
+  let x, y;
+  if (leftRight == "Left") {
+    c = ((canvas.width / 40) * n);
+  }
+  if (leftRight == "Right") {
+    c = ((canvas.width / 40) * (n + 10));
+  }
+  	y = ((canvas.height / 16) * 16);
+	// Up Down Left Right
+	if (direction == "Up" && leftRight == "Left") {
+		makePolygon([[x + 5, y - 5], [x + 25, y - 25], [x + 45, y - 5], [x + 5, y - 5]], "transparent", blue, function () {toggleSize(position, direction);});
+	}
+	if (direction == "Up" && leftRight == "Right") {
+		makePolygon([[x - 5,  y - 5], [x - 25, y - 25], [x - 45, y - 5], [x - 5,  y - 5]], "transparent", blue, function () {toggleSize(position, direction);});
+	}
+	if (direction == "Down" && leftRight == "Left") {
+		makePolygon([[x + 5,  y- 2 5], [x + 25, y - 5], [x + 45, y - 25], [x + 5,  y - 25]], "transparent", blue, function () {toggleSize(position, direction);});
+	}
+	if (direction == "Down" && leftRight == "Right") {
+		makePolygon([[x - 5,  y - 25], [x - 25, y - 5], [x - 45, y - 25], [x - 5,  y - 25]], "transparent", blue, function () {toggleSize(position, direction);});
+	}
+	if (direction == "Right" && leftRight == "Right") {
+		makePolygon([[x - 25, y - 45], [x - 5, y - 25], [x - 25, y - 5], [x-25, y-45]], "transparent", blue, function () {toggleSize(position, direction);});
+	}
+	if (direction == "Left" && leftRight == "Left") {
+		makePolygon([[x + 25, y - 45], [x + 5, y - 25], [x + 25, y - 5], [x + 25, y - 45]], "transparent", blue, function () {toggleSize(position, direction);});
+	}
+}
+
+function makeNormalBorders(position) {
+	let x = position*10;
+	makePolygon([[(canvas.width / 40) * x, (canvas.height / 16) * 12], [(canvas.width / 40) * (x + 10), (canvas.height / 16) * 12]], "transparent", "#FFFFFF");
+	makePolygon([[(canvas.width / 40) * (x + 5), (canvas.height / 16) * 12], [(canvas.width / 40) * (x + 5), (canvas.height / 16) * 16]], "transparent", "#FFFFFF");
+}
+
+function makeNormalTabs(position, number) {
+	let x = ((canvas.width - 1) / 4) * position;
+	let y = ((canvas.height - 1) / 16) * 16;
+	for (let z = 0; z < number; z++) {
+		posX = x+(295 - (z * 76));
+		makePolygon([[posX - 38, y], [posX - 32, y - 30], [posX + 32, y - 30], [posX + 38, y]], "transparent", blue);
+	}
+}
+
+function drawOutline() {
+	makePolygon([[1, 1], [canvas.width - 1, 1], [canvas.width - 1, canvas.height - 1], [1, canvas.height - 1], [1, 1]], "transparent", "white"
+	);
+	addLine("white", ((canvas.width - 1) / 2) - 0.5, 0, ((canvas.width - 1) / 2) - 0.5, canvas.height - 1);
+	addLine("white", (0) + 0.5, 80 - 0.5, (canvas.width - 1) - 0.5, 80 - 0.5);
+
+	let c = ((displayConfig[0] == "Expanded2" || displayConfig[1] == "Expanded2")) ? "transparent" : "white";
+	addLine(c, ((canvas.width - 1) / 4) - 0.5, 80 - 0.5, ((canvas.width - 1) / 4) - 0.5, canvas.height - 1);
+	
+	let c1 = ((displayConfig[2] == "Expanded2" || displayConfig[3] == "Expanded2")) ? "transparent" : "white";
+	addLine(c1, (((canvas.width - 1) / 4) * 3) - 0.5, 80 - 0.5, (((canvas.width - 1) / 4) * 3) - 0.5, canvas.height - 1);
+}
+
+
 function checkConfig() {
   let c = [];
   for (let n = 0; x < displayConfig.length; n++) {
-    let a = ((n == 0 || n == 2)) ? n+1 : n-1;
+    let a = ((n == 0 || n == 2)) ? n + 1 : n - 1;
     let v = displayConfig[a];
-    displayConfig[a] = (a == n+1 && x == "Expanded2") ? "Hidden" : v;
+    displayConfig[a] = (a == n + 1 && x == "Expanded2") ? "Hidden" : v;
   }
   return c;
+}
+
+function toggleSize(position, direction) {
+	if (direction == "Up" || direction == "Down") {
+		if (displayConfig[position] == "Normal") {
+			displayConfig[position] = (direction == "Down") ? "Expanded1" : "Normal";
+			return;
+		}
+		if (displayConfig[position] == "Expanded1") {
+			displayConfig[position] = (direction == "Up") ? "Normal" : "Normal";
+			return;
+		}
+		if (displayConfig[position] == "Expanded2") {
+			let a = (position == 0 || position == 2) ? true : false;
+			displayConfig[position] = (direction == "Up") ? "Normal" : "Normal";
+			return;
+		}
+	}
+	if (direction == "Right" || direction == "Left") {
+		if (displayConfig[position] == "Normal") {
+			let a = (position == 0 || position == 2) ? true : false;
+			displayConfig[position] = (a && direction == "Right") ? "Expanded2" : "Normal";
+			return;
+
+		}
+	}
+// 	console.log(position);
+// 	console.log(direction);
+}
+
+
+function drawPortals() {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	checkConfig();
+	drawOutline();
+	FUEL(0, 1);
+	SMS(0, 2);
+	addText("ICAWS", blue, ((canvas.width - 1) / 4) + 40, ((canvas.height - 1) / 16) + 10, "normal 30px monospace");
+	addImage("/F35Icon0.png", ((canvas.width - 1) / 4) - 40, 7, 56 / 1.25, 84 / 1.25);
+	for (x of displayPortals) {
+		let n = displayPortals.indexOf(x);
+		if (displayConfig[n] == "Normal") {
+			eval(x[0]+"(2, " + n + ");");
+			makeNormalBorders(n);
+			eval(x[1]+"(1, " + (n * 2) + ");");
+			eval(x[2]+"(1, " + ((n * 2) + 1) + ");");
+			let a = (n == 0 || n == 2) ? "Left" : "Right";
+			addMobilityButton("Down", n, a);
+		}
+		if (displayConfig[n] == "Expanded1") {
+			eval(x[0]+"(3, " + n + ");");
+			makeNormalTabs(n, 2);
+			// setTabs(n, [x[1], x[2]])
+			tabs[n][1] = x[1];
+			tabs[n][2] = x[2];
+			let x1 = ((canvas.width - 1) / 4) * n;
+			let y1 = ((canvas.height - 1) / 16) * 16;
+			addText(x[1], blue, x1 + 219 - (x[1].length * 11 / 2), y1 - 10, "normal 18px monospace");
+			addText(x[2], blue, x1 + 295-(x[2].length * 11 / 2), y1 - 10, "normal 18px monospace");
+			let a = (n == 0 || n == 2) ? "Left" : "Right";
+			addMobilityButton("Up", n, a);
+		}
+		if (displayConfig[n] == "Expanded2") {
+			eval(x[0]+"(4, " + n + ");");
+			makeNormalTabs(n, 2);
+			makeNormalTabs(n + 1, 3);
+			tabs[n][1] = x[1];
+			tabs[n][2] = x[2];
+			let e = (n == 0 || n == 2) ? n+1 : n-1
+			console.log(e)
+			console.log(tabs[e]);
+			tabs[e][0] = displayPortals[e][0];
+			tabs[e][1] = displayPortals[e][1];
+			tabs[e][2] = displayPortals[e][2];
+			let x1 = ((canvas.width - 1) / 4) * n;
+			let y1 = ((canvas.height - 1) / 16) * 16;
+			addText(x[1], blue, x1 + 219-(x[1].length * 11 / 2), y1 - 10, "normal 18px monospace");
+			addText(x[2], blue, x1 + 295-(x[2].length * 11 / 2), y1 - 10, "normal 18px monospace");
+
+			let x2 = ((canvas.width - 1) / 4) * (n + 1);
+			let y2 = ((canvas.height - 1) / 16) * 16;
+			addText(displayPortals[n + 1][0], blue, x2 + 143 - (displayPortals[n + 1][0].length * 11 / 2), y2 - 10, "normal 18px monospace");
+			addText(displayPortals[n + 1][1], blue, x2 + 219 - (displayPortals[n + 1][1].length * 11 / 2), y2 - 10, "normal 18px monospace");
+			addText(displayPortals[n + 1][2], blue, x2 + 295 - (displayPortals[n + 1][2].length * 11 / 2), y2 - 10, "normal 18px monospace");
+
+			let a = (n == 0 || n == 2) ? "Left" : "Right";
+			let a1 = (n + 1 == 0 || n + 1 == 2) ? "Left" : "Right";
+			addMobilityButton("Up", n, a);
+			addMobilityButton("Up", n + 1, a1);
+
+		}
+		if (displayConfig[n] != "Expanded2" && displayConfig[n] != "Hidden") {
+			let b = (n == 0 || n == 2) ? "Right" : "Left";
+			addMobilityButton(b, n, b);
+		}
+	}
 }
