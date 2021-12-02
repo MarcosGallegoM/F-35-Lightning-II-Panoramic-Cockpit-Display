@@ -161,8 +161,34 @@ function addRoundSlide(fillColor, strokeColor, x, y, r, totalP, extraP, value, h
   addLine(strokeColor, px, py, lx, ly);
   ctx.lineWidth = 2;
 }
-// function makeLinearGraph(x, y, axis, numberOfDivisions, distanceBetweenDivisions, outsetDistanceFromDivision, divisionValue, firstDivisionValue, value, lineColor, numberColor) {
-  
+function makeLinearGraph(x, y, axis, numberOfDivisions, distanceBetweenDivisions, outsetDistanceFromDivision, divisionValue, firstDivisionValue, value, lineColor, numberColor) {
+  let lastDivisionValue = (numberOfDivisions * divisionValue) + firstDivisionValue;
+  if (axis == "Y") {
+    // addLine(lineColor, x, y, x+outsetDistanceFromDivision, y);
+    for (let a = 0; a < numberofDivisions; a++) {
+      let number = (numberOfDivisions - a) * divisionValue;
+      addLine(lineColor, x, y + (a * distanceBetweenDivisions), x + 5, y + (a * distanceBetweenDivisions)));
+      let tl = (number).toString().length;
+      addText(number, numberColor, x - (tl * 11) + 5, y + (a * distanceBetweenDivisions) + 4, "normal 12 px monospace");
+    }
+    for let a = 0; a < (numberOfDivisions - 1); a++) {
+      addLine(lineColor, x, y + (a * distanceBetweenDivisions), x, y + ((a + 1) * distanceBetweenDivisions));
+    }
+    let vx = x - 30;
+    let vy = y + (value / divisionValue) * distanceBetweenDivisions;
+    ctx.lineWidth = 1;
+    makePolygon([
+        [vx, vy - 4],
+        [vx + 7, vy],
+        [vx, vy + 4],
+        [vx, vy - 4]
+      ], blue, blue);
+    ctx.lineWidth = 2;
+  }
+}
+
+
+
 
 function checkConfig() {
   let c = [];
