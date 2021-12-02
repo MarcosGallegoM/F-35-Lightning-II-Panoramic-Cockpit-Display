@@ -355,7 +355,7 @@ function drawOutline() {
 
 function checkConfig() {
   let c = [];
-  for (let n = 0; x < displayConfig.length; n++) {
+  for (let n = 0; n < displayConfig.length; n++) {
     let a = ((n == 0 || n == 2)) ? n + 1 : n - 1;
     let v = displayConfig[a];
     displayConfig[a] = (a == n + 1 && x == "Expanded2") ? "Hidden" : v;
