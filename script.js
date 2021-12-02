@@ -167,7 +167,7 @@ function makeLinearGraph(x, y, axis, numberOfDivisions, distanceBetweenDivisions
     // addLine(lineColor, x, y, x+outsetDistanceFromDivision, y);
     for (let a = 0; a < numberofDivisions; a++) {
       let number = (numberOfDivisions - a) * divisionValue;
-      addLine(lineColor, x, y + (a * distanceBetweenDivisions), x + 5, y + (a * distanceBetweenDivisions)));
+      addLine(lineColor, x, y + (a * distanceBetweenDivisions), x + 5, y + (a * distanceBetweenDivisions));
       let tl = (number).toString().length;
       addText(number, numberColor, x - (tl * 11) + 5, y + (a * distanceBetweenDivisions) + 4, "normal 12 px monospace");
     }
