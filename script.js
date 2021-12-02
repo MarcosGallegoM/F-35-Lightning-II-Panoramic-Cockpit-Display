@@ -136,7 +136,7 @@ function addRoundSlide(fillColor, strokeColor, x, y, r, totalP, extraP, value, h
   let b = 180;
   if (hasInitialRestraint) {
     if (initialRestraintPosition) {
-      constraintX1 = x+((r) * Math.sin(d2r(360/100) * -initialRestraintPosition-180)));
+      constraintX1 = x+((r) * Math.sin(d2r((360/100) * -initialRestraintPosition-180)));
       constraintY1 = y+((r) * Math.cos(d2r((360/100) * -initialRestraintPosition-180)));
       constraintX2 = x+((r + 5) * Math.sin(d2r((360/100) * -initialRestraintPosition-180)));
       constraintY2 = y+((r + 5) * Math.cos(d2r((360/100) * -initialRestraintPosition-180)));
