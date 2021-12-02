@@ -213,6 +213,84 @@ function ENG(size, position) {
     ctx.fillStyle = green;
     ctx.fillRect((((canvas.width - 1) / 40) * (p + 3)) - 0 - 0.5, (((canvas.height - 1) / 16) * 12) + 80 - 0.5, ((((canvas.width - 1) / 40) * 1.5) - 0) / 100 * n2rpm, ((canvas.height / 16) * 0.5) - 0);
   }
+  if (size == 2) {
+    let x = (canvas.width / 4) * position;
+    let y = (canvas.height / 16) * 2;
+    let w = canvas.width / 4;
+    let h = (canvas.height / 16) * 10;
+    addText("ENG", green, x + 20, y + 20, "normal 18px monospace");
+    addText("NAV", green, x + 20, y + 35, "normal 18px monospace");
+    // Internal Combustion Engine?(A-ICE)
+    addText("A-ICE", blue, x + w - 75, y + 25, "normal 18px monospace");
+    
+    // Start of Top Engine-Related Information
+    
+    // Non-Interactive Round Slider Info Thrust
+    // Max 110 Min 0?
+    let thrust = 93;
+    addRoundSlide("transparent", green, x + 73, y + 100, 30, 75, 8.33, thrust);
+    addText("THRUST", green, x + 40, y + 150, "normal 18px monospace");
+    addText(thrust, green, x + 38, y + 82, "normal 18px monospace");
+    
+    // Non-Interactive Round Slider Info EGT
+    // Max 110 Min 0
+    let egt = 981;
+    addRoundSlide("transparent", green, x + 200, y + 100, 30, 75, 8.33, egt / 10);
+    addText("EGT", green, x + 183, y + 150, "normal 18px monospace");
+    addText(egt, green, x + 165, y + 82, "normal 18px monospace");
+    
+    // Non-Interactive Round Slider Info Throttle
+    // Max 110 Min 0
+    let throttle = 100;
+    addRoundSlide("transparent", green, x + w - 73, y + 100, 30, 75, 0, throttle, true);
+    addText("THROTTLE", green, x + w - 117, y + 150, "normal 18px monospace");
+    addText(throttle, green, x + w - 111, y + 82, "normal 18px monospace");
+    
+    
+    // Start of Middle Engine-Related Information.
+    
+    // Non-Interactive Regular Info FF
+    let ff = 2188;
+    addText("FF", green, x + 15, y + 211, "normal 18px monospace");
+    addText(ff, green, x + 15 + 22 + 11, y + 211, "normal 18px monospace");
+    addRect("transparent", green, x + 39, y + 195, 55, 24);
+    
+    // Non-Interactive Regular Info HYD1
+    let hyd1 = 2849;
+    addText("HYD1", green, x + 136, y + 211, "normal 18px monospace");
+    addText(hyd1, green, x + 136 + 44 + 11, y + 211, "normal 18px monospace");
+    addRect("transparent", green, x + 180, y + 195, 55, 24);
+    
+    // Non-Interactive Regular Info HYD2
+    let hyd2 = 2849;
+    addText("HYD2", green, x + w - 120, y + 211, "normal 18px monospace");
+    addText(hyd2, green, x + w - 120 + 44 + 11, y + 211, "normal 18px monospace");
+    addRect("transparent", green, x + w - 120 + 44, y + 195, 55, 24);
+    
+    
+    // Start of Bottom Engine-Related Information
+    
+    // Non-Interactive Round Slider Info N1 RPM
+    // Max 110 Min 0
+    let n1rpm = 40.2;
+    addRoundSlide("transparent", green, x + 73, y + h / 2 + 100, 30, 75, 8.33, n1rpm, true, 25);
+    addText("N1 RPM", green, x + 40, y + h / 2 + 150, "normal 18px monospace");
+    addText(n1rpm, green, x + 38, y + h / 2 + 82, "normal 18px monospace");
+    
+    // Non-Interactive Round Slider Info N2 RPM
+    // Max 110 Min 0
+    let n2rpm = 60.1;
+    addRoundSlide("transparent", green, x + 200, y + h / 2 + 100, 30, 75, 8.33, n2rpm, true, 25);
+    addText("N2 RPM", green, x + 183, y + h / 2 + 150, "normal 18px monospace");
+    addText(n2rpm, green, x + 165, y + h / 2 + 82, "normal 18px monospace");
+    
+    // Non-Interactive Round Slider Info OIL
+    // Max 110 Min 0
+    let oil = 108;
+    addRoundSlide("transparent", green, x + w - 73, y + h / 2 + 100, 30, 75, 8.33, oil);
+    addText("OIL", green, x + w - 117, y + h / 2 + 150, "normal 18px monospace");
+  }
+}
 
 
 function checkConfig() {
