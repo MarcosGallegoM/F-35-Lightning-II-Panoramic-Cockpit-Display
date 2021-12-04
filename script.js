@@ -749,6 +749,202 @@ function TWD(size, position) {
 
 	}
 }
+function TSD1(size, position) {
+	if (size == 4) {
+		let p = position;
+		let x = (canvas.width/4)*position;
+		let y = (canvas.height/16)*2;
+		let w = canvas.width/2;
+		let w1 = canvas.width/4;
+		let h = (canvas.height/16)*14;
+		addText(
+			"TSD1", 
+			green, 
+			x+50-2*11, 
+			y+20, 
+			"normal 18px monospace"
+		);
+		// NAV / A-S / 
+		addText(
+			"NAV", 
+			green, 
+			x+50-1.5*11, 
+			y+40, 
+			"normal 18px monospace"
+		);
+		addText(
+			"VIEW", 
+			green, 
+			x+135-2*11, 
+			y+20, 
+			"normal 18px monospace"
+		);
+		addLine(green, x+113, y+22, x+157, y+22);
+		// HSD / HGD / VSD
+		addText(
+			"HSD", 
+			blue, 
+			x+135-1.5*11, 
+			y+40, 
+			"normal 18px monospace"
+		);
+		// addText(
+		// 	"REPLY>", 
+		// 	blue, 
+		// 	x+225-3*11, 
+		// 	y+20, 
+		// 	"normal 18px monospace"
+		// );
+		// addText(
+		// 	"RESET>", 
+		// 	blue, 
+		// 	x+315-3*11, 
+		// 	y+20, 
+		// 	"normal 18px monospace"
+		// );
+
+		// Data Link? (DLNK>) maybe
+		addText(
+			"DLNK>", 
+			blue, 
+			x+305-3*11, 
+			y+20, 
+			"normal 18px monospace"
+		);
+		addText(
+			"CNTL>", 
+			blue, 
+			x+395-2.5*11, 
+			y+20, 
+			"normal 18px monospace"
+		);
+		addText(
+			"E 4", 
+			green, 
+			x+395-1*11, 
+			y+40, 
+			"normal 18px monospace"
+		);
+		/* OB#1 / F-ALL / IFF / FCR / ESM / IRST */
+		/* 
+		ESM: Electronic (Warfare) Support Measure
+
+		 */
+		addText(
+			"F-ALL", 
+			"white", 
+			x+103-2.5*11, 
+			y+58, 
+			"normal 14px monospace"
+		);
+
+		// I don't actually know what this is, i just thought it might be zoom idk why lmfao.
+		let t1x = x+28;
+		let t1y = y+90;
+		makePolygon([
+			[t1x, t1y+30],
+			[t1x+10, t1y],
+			[t1x+20, t1y+30],
+			[t1x, t1y+30]
+		], lightBlue, lightBlue);
+
+		let zoom = "40.0";
+		addText(
+			zoom, 
+			blue, 
+			x+10, 
+			y+150, 
+			"normal 18px monospace"
+		);
+		let t2x = x+28;
+		let t2y = y+170;
+		makePolygon([
+			[t2x, t2y],
+			[t2x+10, t2y+30],
+			[t2x+20, t2y],
+			[t2x, t2y]
+		], lightBlue, lightBlue);
+
+		addText(
+			"EMC", 
+			green, 
+			x+10, 
+			y+250, 
+			"normal 18px monospace"
+		);
+		addLine(green, x+10, y+252, x+41, y+252);
+		let emc = 4
+		addText(
+			"EMC"+emc, 
+			blue, 
+			x+10, 
+			y+270, 
+			"normal 18px monospace"
+		);
+		addText(
+			"MAP", 
+			"grey", 
+			x+10, 
+			y+330, 
+			"normal 18px monospace"
+		);
+		// Blob lets you choose wether to render enemy radar "hotspots" thingies
+		let blob = false;
+		addText(
+			"BLOB", 
+			blue, 
+			x+10, 
+			y+390, 
+			"normal 18px monospace"
+		);
+
+		let something = 25;
+		let g1x = x+100;
+		let g1y = y+385;
+		// IDK what this is... 
+		// makeLinearGraph(g1x, g1y, "Y", 6, 20, 5, 10, 0, something, "white", "white");
+
+		addText(
+			"ATK", 
+			blue, 
+			x+10, 
+			y+460, 
+			"normal 18px monospace"
+		);
+
+		addText(
+			"360", 
+			blue, 
+			x+10, 
+			y+480, 
+			"normal 18px monospace"
+		);
+
+		addText("NORM", "white", x+w-44-10, y+90, "normal 18px monospace");
+		// 204 / 284 / 182
+		addText("204", "white", x+w-33-10, y+110, "normal 18px monospace");
+
+		addText("DEP", "white", x+w-33-10, y+170, "normal 18px monospace");
+
+		addText("MK", blue, x+w-22-10, y+240, "normal 18px monospace");
+		
+		addText("ASGN>", blue, x+w-55-10, y+310, "normal 18px monospace");
+
+		addText("DCLT>", blue, x+w-55-10, y+380, "normal 18px monospace");
+		addText("ATK", blue, x+w-33-10, y+450, "normal 18px monospace");
+		makePolygon([
+			[x+50+2*11, y+45],
+			[x+w-50-2*11, y+45],
+			[x+w-50-2*11, y+h-45],
+			[x+50+2*11, y+h-45],
+			[x+50+2*11, y+45]
+		], "transparent", "gray");
+		addCircle("transparent", "grey", x+(w/2), y+(w/2)-65, 75);
+		addCircle("transparent", "grey", x+(w/2), y+(w/2)-65, 150);
+		addCircle("transparent", "grey", x+(w/2), y+(w/2)-65, 225);
+		addCircle("transparent", "grey", x+(w/2), y+(w/2)-65, 300);
+	}
+}
 
 
 function addMobilityButton(direction, position, leftRight) {
