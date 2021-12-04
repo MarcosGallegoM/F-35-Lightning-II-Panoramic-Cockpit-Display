@@ -553,6 +553,159 @@ function SMS(size, position) {
 		}
 	}
 }
+function FUEL(size, position) {
+	if (size == 2 || size == 3) {
+		// Start Drawing Portal Contents.
+		// FUEL Portal - Big(3) And Normal(2).
+		p1 = position+1;
+		p = (((canvas.width-1)/4)*(p1-1));
+
+		addText("FUEL", green, (((canvas.width-1)/4)*p1)-380, 110);
+		addText("REFUEL", blue, (((canvas.width-1)/4)*p1)-310, 110);
+		addText("POP-UP", "#A43BAC", (((canvas.width-1)/4)*p1)-392, 130);
+
+		addText("DUMP CO", blue, (((canvas.width-1)/4)*p1)-395, 350);
+		addText("7.0", blue, (((canvas.width-1)/40)*0.125)+p, 370);
+
+
+		addText("JOKER", blue, (((canvas.width-1)/4)*p1)-55, 260, "normal 16px monospace");
+		addText("4.5", blue, (((canvas.width-1)/4)*p1)-35, 275, "normal 16px monospace");
+
+		addText("BINGO", blue, (((canvas.width-1)/4)*p1)-55, 305, "normal 16px monospace");
+		addText("3.0", blue, (((canvas.width-1)/4)*p1)-35, 320, "normal 16px monospace");
+
+		addText("FUEL", blue, (((canvas.width-1)/4)*p1)-45, 350, "normal 16px monospace");
+		addLine(blue, (((canvas.width-1)/4)*p1)-44, 355, (((canvas.width-1)/4)*p1)-5, 355);
+		addText("JP4", blue, (((canvas.width-1)/4)*p1)-45, 370, "normal 16px monospace");
+
+		// Gross Weight(GW)?
+		addText("GW:   48.4", blue, (((canvas.width-1)/40)*1.25)+p, 185, "normal 14px monospace");
+		addText("INLET:  43", green, (((canvas.width-1)/40)*1.25)+p, 200, "normal 14px monospace");
+		addText("FEED:   44", green, (((canvas.width-1)/40)*1.25)+p, 215, "normal 14px monospace");
+
+
+
+		addRect("transparent", green, (((canvas.width-1)/8)*1)+p+55, 135, 75, 75);
+		addText("TOT:18.2", green, (((canvas.width-1)/8)*1)+p+57, 155, "normal 14px monospace");
+		addText("INT:18.2", green, (((canvas.width-1)/8)*1)+p+57, 175, "normal 14px monospace");
+		addText("EXT:0.0", green, (((canvas.width-1)/8)*1)+p+57, 195, "normal 14px monospace");
+
+
+		ctx.fillStyle = "#AB32FC";
+		ctx.fillRect((((canvas.width-1)/8)*1)+p-50-0.5, 150-0.5, 100, 50);
+		addRect("transparent", "white", (((canvas.width-1)/8)*1)+p-50, 150, 100, 50);
+
+		ctx.strokeStyle = "#FFFFFF";
+
+		addText("F1", "#FFFFFF", (((canvas.width-1)/8)*1)+p-48, 160, "normal 12px monospace");
+		addText("5300", "#FFFFFF", (((canvas.width-1)/8)*1)+p-13, 175, "normal 12px monospace");
+
+
+		ctx.fillStyle = "#AB32FC";
+		ctx.fillRect((((canvas.width-1)/8)*1)+p-53-0.5, 210-0.5, 48, 50);
+		addRect("transparent", "white", (((canvas.width-1)/8)*1)+p-53, 210, 48, 50);
+
+		addText("F2L", "#FFFFFF", (((canvas.width-1)/8)*1)+p-51, 220, "normal 12px monospace");
+		addText("1500", "#FFFFFF", (((canvas.width-1)/8)*1)+p-43, 235, "normal 12px monospace");
+
+
+		ctx.fillStyle = "#AB32FC";
+		ctx.fillRect((((canvas.width-1)/8)*1)+p+4-0.5, 210-0.5, 48, 50);
+		addRect("transparent", "white", (((canvas.width-1)/8)*1)+p+4, 210, 48, 50);
+
+		addText("F2R", "#FFFFFF", (((canvas.width-1)/8)*1)+p+5, 220, "normal 12px monospace");
+		addText("1500", "#FFFFFF", (((canvas.width-1)/8)*1)+p+13, 235, "normal 12px monospace");
+
+		addText("FEED", "#FFFFFF", (((canvas.width-1)/8)*1)+p-50, 270, "normal 12px monospace");
+		addText("FEED", "#FFFFFF", (((canvas.width-1)/8)*1)+p+20, 270, "normal 12px monospace");
+
+		ctx.fillStyle = "#AB32FC";
+		ctx.fillRect((((canvas.width-1)/8)*1)+p-56-0.5, 275-0.5, 52, 50);
+		addRect("transparent", "white", (((canvas.width-1)/8)*1)+p-56, 275, 52, 50);
+
+		addText("F3L", "#FFFFFF", (((canvas.width-1)/8)*1)+p-55, 285, "normal 12px monospace");
+		addText("1700", "#FFFFFF", (((canvas.width-1)/8)*1)+p-45, 305, "normal 12px monospace");
+
+		ctx.fillStyle = "#AB32FC";
+		ctx.fillRect((((canvas.width-1)/8)*1)+p+4-0.5, 275-0.5, 52, 50);
+		addRect("transparent", "white", (((canvas.width-1)/8)*1)+p+4, 275, 52, 50);
+
+		addText("F3R", "#FFFFFF", (((canvas.width-1)/8)*1)+p+5, 285, "normal 12px monospace");
+		addText("1700", "#FFFFFF", (((canvas.width-1)/8)*1)+p+14, 305, "normal 12px monospace");
+
+		makePolygon([
+			[(((canvas.width-1)/8)*1)+p+60, 278],
+			[(((canvas.width-1)/8)*1)+p+92, 313],
+			[(((canvas.width-1)/8)*1)+p+92, 383],
+			[(((canvas.width-1)/8)*1)+p+60, 418],
+			[(((canvas.width-1)/8)*1)+p+60, 278]
+		], "#AB32FC", "white");
+		addText("RW", "#FFFFFF", (((canvas.width-1)/8)*1)+p+70, 313, "normal 10px monospace");
+		addText("1300", "#FFFFFF", (((canvas.width-1)/8)*1)+p+61, 350, "normal 12px monospace");
+
+
+		makePolygon([
+			[(((canvas.width-1)/8)*1)+p-60, 278],
+			[(((canvas.width-1)/8)*1)+p-92, 313],
+			[(((canvas.width-1)/8)*1)+p-92, 383],
+			[(((canvas.width-1)/8)*1)+p-60, 418],
+			[(((canvas.width-1)/8)*1)+p-60, 278]
+		], "#AB32FC", "white");
+
+		addText("LW", "#FFFFFF", (((canvas.width-1)/8)*1)+p-84, 313, "normal 10px monospace");
+		addText("1300", "#FFFFFF", (((canvas.width-1)/8)*1)+p-91, 350, "normal 12px monospace");
+
+
+		addText("CG 30.0", green, (((canvas.width-1)/8)*1)+p-22, 340, "normal 12px monospace");
+
+
+		ctx.fillStyle = "#AB32FC";
+		ctx.fillRect((((canvas.width-1)/8)*1)+p-56-0.5, 345-0.5, 52, 50);
+		addRect("transparent", "white", (((canvas.width-1)/8)*1)+p-56, 345, 52, 50);
+
+		addText("F4L", "#FFFFFF", (((canvas.width-1)/8)*1)+p-55, 360, "normal 12px monospace");
+		addText("1150", "#FFFFFF", (((canvas.width-1)/8)*1)+p-45, 375, "normal 12px monospace");
+
+		ctx.fillStyle = "#AB32FC";
+		ctx.fillRect((((canvas.width-1)/8)*1)+p+4-0.5, 345-0.5, 52, 50);
+		addRect("transparent", "white", (((canvas.width-1)/8)*1)+p+4, 345, 52, 50);
+
+		addText("F4R", "#FFFFFF", (((canvas.width-1)/8)*1)+p+5, 360, "normal 12px monospace");
+		addText("1150", "#FFFFFF", (((canvas.width-1)/8)*1)+p+14, 375, "normal 12px monospace");
+
+
+		ctx.fillStyle = "#AB32FC";
+		ctx.fillRect((((canvas.width-1)/8)*1)+p-44-0.5, 405-0.5, 30, 50);
+		addRect("transparent", "white", (((canvas.width-1)/8)*1)+p-44, 405, 30, 50);
+
+		addText("F5L", "#FFFFFF", (((canvas.width-1)/8)*1)+p-43, 415, "normal 12px monospace");
+		addText("600", "#FFFFFF", (((canvas.width-1)/8)*1)+p-40, 427, "normal 12px monospace");
+
+		ctx.fillStyle = "#AB32FC";
+		ctx.fillRect((((canvas.width-1)/8)*1)+p+15-0.5, 405-0.5, 30, 50);
+		addRect("transparent", "white", (((canvas.width-1)/8)*1)+p+15, 405, 30, 50);
+
+		addText("F5R", "#FFFFFF", (((canvas.width-1)/8)*1)+p+16, 415, "normal 12px monospace");
+		addText("600", "#FFFFFF", (((canvas.width-1)/8)*1)+p+18, 427, "normal 12px monospace");
+	}
+	if (size == 0) {
+		let x = 30+(canvas.width/16)*position;
+		let y = (canvas.height/16)*0;
+		// Internal Fuel is labeled as I, and External Fuel is labeled as E(Although it might be something else)
+		addText("  18.2", green, x+13, y+30, "normal 18px monospace");
+		addText("I 18.2", green, x+20, y+45, "normal 16px monospace");
+		addText("E  0.0", green, x+20, y+60, "normal 16px monospace");
+		ctx.fillStyle = "#A2B2FF";
+		ctx.fillRect(x+80, y+13, 25, 66);
+		addLine("black", x+80, y+24, x+105, y+24);
+		addLine("black", x+80, y+35, x+105, y+35);
+		addLine("black", x+80, y+46, x+105, y+46);
+		addLine("black", x+80, y+57, x+105, y+57);
+		addLine("black", x+80, y+68, x+105, y+68);
+		addLine("white", x+85, y+52, x+110, y+52);
+		addLine("white", x+85, y+60, x+110, y+60);
+	}
+}
 
 
 function addMobilityButton(direction, position, leftRight) {
