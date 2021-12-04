@@ -706,18 +706,61 @@ function FUEL(size, position) {
 		addLine("white", x+85, y+60, x+110, y+60);
 	}
 }
+function TWD(size, position) {
+	if (size == 1) {
+		// TWD S
+		let p = position;
+		let x = (((canvas.width-1)/8)*p);
+		let y = ((canvas.height/16)*12);
+		let w = 200;
+		let h = 160;
+
+		// Contents
+		addCircle("transparent", "white", x+(w/2), y+(h/2), (h/2)-10);
+		addCircle("transparent", "white", x+(w/2), y+(h/2), (h/2)-35);
+		addCircle("transparent", "white", x+(w/2), y+(h/2), (h/2)-62);
+		addCircle("transparent", "white", x+(w/2), y+(h/2), (h/2)-77);
+		addLine("We're no strangers to love", x+(w/2), y+(h/2)-((h/2)-10), x+(w/2), y+(h/2)-((h/2)-62));
+		addLine("You know the rules and so do I", x+(w/2), y+(h/2)+((h/2)-10), x+(w/2), y+(h/2)+((h/2)-62));
+		addLine("A full commitment's what I'm thinking of", x+(w/2)-((h/2)-10), y+(h/2), x+(w/2)-((h/2)-62), y+(h/2));
+		addLine("You wouldn't get this from any other guy", x+(w/2)+((h/2)-10), y+(h/2), x+(w/2)+((h/2)-62), y+(h/2));
+		// Portal Name
+		addText(
+			"TWD", 
+			green, 
+			x+w-(w/2)-16.5, 
+			y+h-5, 
+			"normal 18px monospace"
+		);
+		addText(
+			"OPER", 
+			green, 
+			x+10, 
+			y+20, 
+			"normal 18px monospace"
+		);
+		addText(
+			"SEMI", 
+			green, 
+			x+w-50, 
+			y+20, 
+			"normal 18px monospace"
+		);
+
+	}
+}
 
 
 function addMobilityButton(direction, position, leftRight) {
-  let n = position * 10;
-  let x, y;
-  if (leftRight == "Left") {
-    c = ((canvas.width / 40) * n);
-  }
-  if (leftRight == "Right") {
-    c = ((canvas.width / 40) * (n + 10));
-  }
-  	y = ((canvas.height / 16) * 16);
+	let n = position * 10;
+	let x, y;
+	if (leftRight == "Left") {
+		c = ((canvas.width / 40) * n);
+	}
+	if (leftRight == "Right") {
+		c = ((canvas.width / 40) * (n + 10));
+	}
+	y = ((canvas.height / 16) * 16);
 	// Up Down Left Right
 	if (direction == "Up" && leftRight == "Left") {
 		makePolygon([[x + 5, y - 5], [x + 25, y - 25], [x + 45, y - 5], [x + 5, y - 5]], "transparent", blue, function () {toggleSize(position, direction);});
