@@ -876,6 +876,4 @@ function drawPortals() {
 }
 
 
-document.onload = function () {
-	drawPortals();
-};
+drawPortals();
