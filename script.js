@@ -136,13 +136,13 @@ function addRoundSlide(fillColor, strokeColor, x, y, r, totalP, extraP, value, h
   let b = 180;
   if (hasInitialRestraint) {
     if (initialRestraintPosition) {
-      constraintX1 = x+((r) * Math.sin(d2r((360/100) * -initialRestraintPosition-180)));
-      constraintY1 = y+((r) * Math.cos(d2r((360/100) * -initialRestraintPosition-180)));
-      constraintX2 = x+((r + 5) * Math.sin(d2r((360/100) * -initialRestraintPosition-180)));
-      constraintY2 = y+((r + 5) * Math.cos(d2r((360/100) * -initialRestraintPosition-180)));
+      constraintX1 = x+((r) * Math.sin(d2r((360 / 100) * -initialRestraintPosition - 180)));
+      constraintY1 = y+((r) * Math.cos(d2r((360 / 100) * -initialRestraintPosition - 180)));
+      constraintX2 = x+((r + 5) * Math.sin(d2r((360 / 100) * -initialRestraintPosition - 180)));
+      constraintY2 = y+((r + 5) * Math.cos(d2r((360 / 100) * -initialRestraintPosition - 180)));
       addLine(strokeColor, constraintX1, constraintY1, constraintX2, constraintY2);
-      b = (360/100) * -initialRestraintPosition;
-      a = (360 - 90 - b)/2;
+      b = (360 / 100) * -initialRestraintPosition;
+      a = (360 - 90 - b) / 2;
     } else {
       addLine(strokeColor, x, y-r+1, x, y-r-5);
     }
@@ -150,14 +150,14 @@ function addRoundSlide(fillColor, strokeColor, x, y, r, totalP, extraP, value, h
   
   ctx.lineWidth = 1;
   let px, py, rx, ry, lx, ly;
-  px = x + ((r - 5) * Math.sin(d2r((a/100) * -value - b)));
-  py = y + ((r - 5) * Math.cos(d2r((a/100) * -value - b)));
+  px = x + ((r - 5) * Math.sin(d2r((a / 100) * -value - b)));
+  py = y + ((r - 5) * Math.cos(d2r((a / 100) * -value - b)));
   addLine(strokeColor, x, y, px, py);
-  rx = px + (5 * Math.sin(d2r((a/100) * -value - (b + 135))));
-  ry = px + (5 * Math.cos(d2r((a/100) * -value - (b + 135))));
+  rx = px + (5 * Math.sin(d2r((a / 100) * -value - (b + 135))));
+  ry = px + (5 * Math.cos(d2r((a / 100) * -value - (b + 135))));
   addLine(strokeColor, px, py, rx, ry);
-  lx = px + (5 * Math.sin(d2r((a/100) * -value - (b - 135))));
-  ly = px + (5 * Math.cos(d2r((a/100) * -value - (b - 135))));
+  lx = px + (5 * Math.sin(d2r((a / 100) * -value - (b - 135))));
+  ly = px + (5 * Math.cos(d2r((a / 100) * -value - (b - 135))));
   addLine(strokeColor, px, py, lx, ly);
   ctx.lineWidth = 2;
 }
@@ -290,6 +290,268 @@ function ENG(size, position) {
     addRoundSlide("transparent", green, x + w - 73, y + h / 2 + 100, 30, 75, 8.33, oil);
     addText("OIL", green, x + w - 117, y + h / 2 + 150, "normal 18px monospace");
   }
+}
+function SMS(size, position) {
+	if (size == 0) {
+		let x = 30+(canvas.width/16)*position;
+		let y = (canvas.height/16)*0;
+		addText("2 MRM", green, x+20, y+15, "normal 14px monospace");
+		addText("2 SRM", green, x+20, y+35, "normal 14px monospace");
+		addText("NO  GUN", green, x+20, y+55, "normal 14px monospace");
+		addText("2 BOMB", green, x+20, y+75, "normal 14px monospace");
+		addText("10", "white", x+82, y+15, "normal 14px monospace");
+		addText("20", "white", x+82, y+30, "normal 14px monospace");
+	}
+	if (size == 1) {
+		// Start Drawing Portal Contents
+		// SMS portal - Smallest
+		let x = (canvas.width/8)*position;
+		let y = (canvas.height/16)*12;
+		addText(
+			"SMS", 
+			green, 
+			((x/position)*(position+0.5))-15, 
+			((canvas.height/16)*16)-5, 
+			"normal 18px monospace"
+		);
+		makePolygon([
+			[x+72, y+1],
+			[x+69, y+25],
+			[x+1, y+65],
+			[x+1, y+85],
+			[x+69, y+100],
+			[x+67, y+85],
+			[x+15, y+73],
+			[x+15, y+88]
+		], "transparent", "#ACACAC");
+		makePolygon([
+			[x+128, y+1],
+			[x+131, y+25],
+			[x+198, y+65],
+			[x+198, y+85],
+			[x+132, y+100],
+			[x+133, y+85],
+			[x+185, y+73],
+			[x+185, y+88]
+		], "transparent", "#ACACAC");
+		makePolygon([
+			[x+75, y+75],
+			[x+60, y+110],
+			[x+60, y+130],
+			[x+75, y+115],
+			[x+78, y+102],
+			[x+60, y+120],
+			[x+78, y+102],
+			[x+79, y+95],
+			[x+75, y+75]
+		], "black", "#ACACAC");
+		makePolygon([
+			[x+125, y+75],
+			[x+140, y+110],
+			[x+140, y+130],
+			[x+125, y+115],
+			[x+122, y+102],
+			[x+140, y+120],
+			[x+122, y+102],
+			[x+121, y+95],
+			[x+125, y+75]
+		], "black", "#ACACAC");
+		makePolygon([
+			[x+60, y+115],
+			[x+35, y+130],
+			[x+35, y+142],
+			[x+80, y+155],
+			[x+85, y+115],
+			[x+84, y+123],
+			[x+66, y+125]
+		], "transparent", "#ACACAC");
+		makePolygon([
+			[x+140, y+115],
+			[x+165, y+130],
+			[x+165, y+142],
+			[x+120, y+155],
+			[x+115, y+115],
+			[x+116, y+123],
+			[x+134, y+125]
+		], "transparent", "#ACACAC");
+		makePolygon([
+			[x+85, y+115],
+			[x+90, y+122],
+			[x+110, y+122],
+			[x+115, y+115]
+		], "transparent", "#ACACAC");
+		makePolygon([
+			[x+85, y+115],
+			[x+88.75, y+113],
+			[x+92.5, y+115],
+			[x+96.25, y+113],
+			[x+100, y+115],
+			[x+103.75, y+113],
+			[x+107.5, y+115],
+			[x+111.25, y+113],
+			[x+115, y+115]
+		], "transparent", "#ACACAC");
+		addRect("transparent", green, x+10, y+115, 180, 20);
+		addText("NO WPN SELECTED", green, x+20, y+130, "normal 18px monospace");
+	}
+	if (size == 2) {
+		let p1 = position;
+		let x = (((canvas.width-1)/4)*p1);
+		let y = (canvas.height/16)*2;
+		let w = ((canvas.width-1)/4);
+		let h = (canvas.height/16)*10;
+		addText("SMS", green, x+30, y+20, "normal 18px monospace");
+		// Aircraft Shape
+		makePolygon([
+			[x+152, y+0],
+			[x+145, y+10],
+			[x+130, y+100],
+			[x+30, y+160],
+			[x+30, y+220],
+			[x+145, y+245],
+			[x+140, y+215],
+			[x+50, y+197],
+			[x+50, y+225]
+		], "transparent", "#ACACAC");
+		makePolygon([
+			[x+w-152, y+0],
+			[x+w-145, y+10],
+			[x+w-130, y+100],
+			[x+w-30, y+160],
+			[x+w-30, y+220],
+			[x+w-145, y+245],
+			[x+w-140, y+215],
+			[x+w-50, y+197],
+			[x+w-50, y+225]
+		], "transparent", "#ACACAC");
+		makePolygon([
+			[x+160-5, y+205],
+			[x+125-5, y+270],
+			[x+125-5, y+310],
+			[x+165-5, y+290],
+			[x+167-5, y+275],
+			[x+124-5, y+295],
+			[x+167-5, y+275],
+			[x+170-5, y+245],
+			[x+160-5, y+205]
+		], "black", "#ACACAC");
+		makePolygon([
+			[x+w-160+5, y+205],
+			[x+w-125+5, y+270],
+			[x+w-125+5, y+310],
+			[x+w-165+5, y+290],
+			[x+w-167+5, y+275],
+			[x+w-124+5, y+295],
+			[x+w-167+5, y+275],
+			[x+w-170+5, y+245],
+			[x+w-160+5, y+205]
+		], "black", "#ACACAC");
+		makePolygon([
+			[x+125-5, y+280],
+			[x+75-5, y+310],
+			[x+75-5, y+335],
+			[x+167-5, y+360],
+			[x+180-5, y+280],
+			[x+177-5, y+295],
+			[x+145-5, y+300]
+		], "transparent", "#ACACAC");
+		makePolygon([
+			[x+w-125+5, y+280],
+			[x+w-75+5, y+310],
+			[x+w-75+5, y+335],
+			[x+w-167+5, y+360],
+			[x+w-180+5, y+280],
+			[x+w-177+5, y+295],
+			[x+w-145+5, y+300]
+		], "transparent", "#ACACAC");
+		makePolygon([
+			[x+180-5, y+280],
+			[x+190-5, y+290],
+			[x+w-190+5, y+290],
+			[x+w-180+5, y+280]
+		], "transparent", "#ACACAC");
+		makePolygon([
+			[x+180-5, y+280],
+			[x+185-5, y+276],
+			[x+190-5, y+280],
+			[x+195-5, y+276],
+			[x+200-5, y+280],
+			[x+205-5, y+276],
+			[x+w-200+5, y+280],
+			[x+w-195+5, y+276],
+			[x+w-190+5, y+280],
+			[x+w-185+5, y+276],
+			[x+w-180+5, y+280]
+		], "transparent", "#ACACAC");
+		/* 
+		AA1 / DGFT / AS
+		*/
+		addText("AA1", green, x+30, y+35, "normal 18px monospace");
+		// CNTL
+		addText("CNTL>", blue, x+((canvas.width-1)/4)-70, y+20, "normal 18px monospace");
+		// LIVE / TRAIN Selection
+		let lx = x+((canvas.width-1)/8)-20;
+		let ly = y+25;
+		let lw = 44;
+		addText("LIVE", "white", lx, ly, "normal 18px monospace");
+		let tx = x+((canvas.width-1)/8)-25;
+		let ty = y+45;
+		let tw = 55;
+		addText("TRAIN", "grey", tx, ty, "normal 18px monospace");
+		addRect("transparent", "white", lx-5, ly-15, lw+10, 20);
+		
+		// WPN DOORS OPEN/CLOSED Selection
+		let wpnDoorsState = 0;
+		addText("DOORS", blue, x+5, y+250, "normal 18px monospace");
+		if (wpnDoorsState == 0) {
+			addText("OPEN", blue, x+5, y+270, "normal 18px monospace");
+
+			addText("CLOSED", "white", x+5, y+290, "normal 18px monospace");
+			addRect("transparent", "white", x+5-2, y+290-15, 66+4, 20)
+		}
+		if (wpnDoorsState == 1) {
+			addText("OPEN", "white", x+5, y+270, "normal 18px monospace");
+
+			addText("CLOSED", blue, x+5, y+290, "normal 18px monospace");
+			addRect("transparent", "white", x+5-2, y+270-15, 44+4, 20)
+		}
+
+		// Weapon Selection and ready-state declaration(it rhymes lmfao).
+		// STA7 A120 - RDY
+		// NO WPN SELECTED
+		let txt = "NO WPN SELECTED";
+		let txtlng = txt.length*11;
+		let txtx = x+(w/2)-(txtlng/2);
+		let txty = y+220;
+		addText(txt, "white", txtx, txty, "normal 18px monospace");
+		addRect("transparent", "white", txtx-5, txty-15, txtlng+10, 20)
+
+		// Chaff and Flare Count Display System (Chaff Count Display System[CCDS] & Flare Count Display System[FCDS])
+		let ccds = "CHAFF  10";
+		let ccdslng = ccds.length*11;
+		let ccdsx = x+(w/2)-(ccdslng/2);
+		let ccdsy = y+260;
+		addRect("black", "#FFFFFF", ccdsx-5, ccdsy-15, ccdslng+10, 110);
+		addText(ccds, "white", ccdsx, ccdsy, "normal 18px monospace");
+		let fcds = "FLARE  20";
+		let fcdslng = fcds.length*11;
+		let fcdsx = x+(w/2)-(fcdslng/2);
+		let fcdsy = y+280;
+		addText(fcds, "white", fcdsx, fcdsy, "normal 18px monospace");
+
+		// IDk what "EXCM ARM" is, so I'll make it changeable just in case.
+
+		let escmarm = 1;
+		if (escmarm == 0) {
+			addText("EXCM", blue, x+5, y+h-40, "normal 18px monospace");
+			addText("ARM", blue, x+5, y+h-25, "normal 18px monospace");
+		}
+		if (escmarm == 1) {
+			addText("EXCM", "white", x+5, y+h-40, "normal 18px monospace");
+			addText("ARM", "white", x+5, y+h-25, "normal 18px monospace");
+			addRect("transparent", "white", x+5-2, y+h-55, 44+4, 35)
+		}
+	}
 }
 
 
@@ -458,3 +720,8 @@ function drawPortals() {
 		}
 	}
 }
+
+
+document.onload = function () {
+	drawPortals();
+};
